@@ -1,4 +1,4 @@
-sudo apt-get install rabbitmq-server
+    sudo apt-get install rabbitmq-server
 
 /etc/rabbitmq/enabled_plugins
 
