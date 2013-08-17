@@ -6,5 +6,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files`.split($/)
 
   spec.add_runtime_dependency "bunny"
+  spec.add_runtime_dependency "rack"
+  spec.add_runtime_dependency "em-websocket"
+  spec.add_runtime_dependency "sinatra"
   spec.add_development_dependency "rake"
 end
