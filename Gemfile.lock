@@ -1,11 +1,20 @@
+PATH
+  remote: .
+  specs:
+    realstats (0.0.1)
+      bunny
+
 GEM
+  remote: https://rubygems.org/
   specs:
     amq-protocol (1.7.0)
     bunny (0.10.2)
       amq-protocol (>= 1.6.0)
+    rake (10.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bunny
+  rake
+  realstats!

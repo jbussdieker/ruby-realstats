@@ -1,1 +1,3 @@
-gem 'bunny'
+source 'https://rubygems.org'
+
+gemspec
