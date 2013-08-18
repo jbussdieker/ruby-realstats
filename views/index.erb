@@ -2,6 +2,9 @@
   <head>
     <link href="bootstrap.css" rel="stylesheet" type="text/css">
     <link href="application.css" rel="stylesheet" type="text/css">
+    <script language="javascript">
+      var ws = new WebSocket("ws://localhost:<%= RealStats.settings[:websocket][:port] %>/");
+    </script>
     <script language="javascript" type="text/javascript" src="jquery.js"></script>
     <script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
     <script language="javascript" type="text/javascript" src="application.js"></script>

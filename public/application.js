@@ -1,5 +1,4 @@
 $(function() {
-  var ws = new WebSocket("ws://localhost:8080/");
 
   var series = {
     label: "Value",

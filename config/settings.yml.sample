@@ -4,9 +4,9 @@
   :port: 5672
   :user: admin
   :password: password
-:websocket:
-  :host: 0.0.0.0
-  :port: 8080
 :webserver:
   :Host: 0.0.0.0
-  :Port: 9292
+  :Port: 8000
+:websocket:
+  :host: 0.0.0.0
+  :port: 8001
