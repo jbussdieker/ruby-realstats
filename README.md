@@ -1,4 +1,4 @@
-# Real Stats
+![ScreenShot](https://raw.github.com/jbussdieker/ruby-realstats/master/public/screenshot.png)
 
 Simple demonstration of collecting and graphing realtime stats using Flot and Web Sockets.
 
