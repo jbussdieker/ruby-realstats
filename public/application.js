@@ -1,6 +1,4 @@
 $(function() {
-  // We use an inline data source in the example, usually data would
-  // be fetched from a server
   var ws = new WebSocket("ws://localhost:8080/");
 
   var series = {
@@ -31,25 +29,8 @@ $(function() {
     } else {
       plot = $.plot(container, [series], {
         series: {
-          shadowSize: 0	// Drawing is faster without shadows
+          shadowSize: 0
         },
-        grid: {
-          borderWidth: 1,
-          minBorderMargin: 20,
-          labelMargin: 10,
-          backgroundColor: {
-            colors: ["#fff", "#e4f4f4"]
-          },
-          margin: {
-            top: 8,
-            bottom: 20,
-            left: 20
-          },
-        },
-        //yaxis: {
-        //  min: 0,
-        //  max: 0.01
-        //},
         xaxis: {
           show: false
         }
