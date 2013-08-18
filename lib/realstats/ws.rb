@@ -1,19 +1,16 @@
 require 'em-websocket'
-require 'bunny'
 require 'json'
 
 module RealStats
   class WS
     def initialize
-      @conn = Bunny.new("amqp://admin:password@localhost:5672")
-      @conn.start
-      @queue = @conn.queue("realstats", :arguments => {"x-message-ttl" => 5})
+      @queue = Queue.new(RealStats.settings[:queue])
       @list = []
     end
 
     def run_client(ws)
       Thread.new do
-        @queue.subscribe(:block => true) do |message,header,body|
+        @queue.subscribe do |message,header,body|
           ws.send(body.to_json)
         end
       end

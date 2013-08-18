@@ -1,14 +1,32 @@
 #!/usr/bin/env ruby
 require 'bunny'
+require 'eventmachine'
+require 'realstats'
 
-conn = Bunny.new("amqp://admin:password@localhost:5672")
-conn.start
-ch = conn.create_channel
-q = ch.queue("realstats", {:arguments => {"x-message-ttl" => 5}})
+@queue = RealStats::Queue.new(RealStats.settings[:queue])
+
+=begin
+@list = []
+
+Thread.new do
+  EM.run do
+    EventMachine::PeriodicTimer.new(0.03) do
+      begin
+        total = 0.0
+        @list.each do |item|
+          total += item.to_f
+        end
+        avg = total / @list.length
+        @queue.publish(avg.to_s)
+        @list = []
+      rescue Exception => e
+        p e
+      end
+    end
+  end
+end
+=end
 
 ARGF.each do |line|
-  q.publish(
-    line.strip, 
-    :expiration => 5
-  )
+  @queue.publish(line)
 end
